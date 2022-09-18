@@ -2,15 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { IWeapon } from '../interfaces/iweapon';
 
 @Component({
-  selector: 'app-weapon',
-  templateUrl: './weapon.component.html',
-  styleUrls: ['./weapon.component.sass']
+  selector: 'app-weapons',
+  templateUrl: './weapons.component.html',
+  styleUrls: ['./weapons.component.sass']
 })
-export class WeaponComponent implements OnInit {
-  public weapon: Weapon | undefined;
+export class WeaponsComponent implements OnInit {
+  public weapons: Array<Weapon> = new Array<Weapon>;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onShowWeaponDetails(event: MouseEvent){
+    console.log(event);
   }
 
 }

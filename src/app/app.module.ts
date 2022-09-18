@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component';
-import { WeaponComponent } from './weapon/weapon.component';
+import { WeaponsComponent } from './weapons/weapons.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeaponComponent
+    WeaponsComponent
   ],
   imports: [
     BrowserModule,
