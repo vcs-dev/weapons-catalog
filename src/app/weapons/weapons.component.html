@@ -1,10 +1,16 @@
-<div *ngFor="let weapon of weapons">
-    <div>
-        <div id="image-frame"><img src="weapon.thumbnail" alt="thumbnail"></div>
-        <div id="short-details">
+<div id="#main-box">
+  <div id="menu-filter">
+    <div id="weapons-list">
+      <div *ngFor="let weapon of weapons">
+        <div>
+          <div id="image-frame"><img src="weapon.thumbnail" alt="thumbnail"></div>
+          <div id="short-details">
             <h3>{{ weapon.model }}</h3>
             <p>Caliber: {{ weapon.caliber }}</p>
             <div class="btn-primary" (click)="onShowWeaponDetails($event)">Details</div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

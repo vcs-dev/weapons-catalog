@@ -1,38 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IWeapon } from '../interfaces/iweapon';
+import { Weapon } from '../models/weapon.model';
+import { WeaponService } from '../services/weapon.service';
 
 @Component({
   selector: 'app-weapons',
   templateUrl: './weapons.component.html',
   styleUrls: ['./weapons.component.sass']
 })
-export class WeaponsComponent implements OnInit {
-  public weapons: Array<Weapon> = new Array<Weapon>;
-  constructor() { }
+export class WeaponsComponent {
+  public weapons: Weapon[] | undefined;
 
-  ngOnInit(): void {
+  constructor(private weaponService: WeaponService) {
+    this.getWeapons();
   }
 
-  onShowWeaponDetails(event: MouseEvent){
+  onShowWeaponDetails(event: MouseEvent) {
     console.log(event);
   }
 
-}
+  getWeapons() {
+    this.weaponService.getWeapons()
+    .subscribe((data: Weapon[]) => this.weapons = { ...data });
+    console.log(this.weapons);
+  }
 
-class Weapon implements IWeapon {
-  id: number = 0;
-  model: string = "";
-  brand_id: number = 0;
-  type_id: number = 0;
-  caliber: string = "";
-  barrel_length: string = "";
-  total_length: string = "";
-  ammunition_storage_type: string = "";
-  ammunition_storage_capacity: string = "";
-  picatiny_rail: string = "";
-  mlok_system: string = "";
-  action: string = "";
-  permalink: string = "";
-  thumbnail: string = "";
-  images: string[] = [];
 }
